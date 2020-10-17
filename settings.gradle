@@ -1,0 +1,3 @@
+include ':DiskLruCache'
+include ':app'
+rootProject.name = "AndroidDiskLruCahce"
