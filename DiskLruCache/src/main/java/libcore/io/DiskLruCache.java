@@ -1,6 +1,4 @@
-package com.lulu.lrucache;
-
-import android.util.LruCache;
+package libcore.io;
 
 import java.io.BufferedWriter;
 import java.io.Closeable;

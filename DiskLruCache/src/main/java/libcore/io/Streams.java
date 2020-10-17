@@ -1,4 +1,4 @@
-package com.lulu.lrucache;
+package libcore.io;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;

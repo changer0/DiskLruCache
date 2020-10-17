@@ -4,9 +4,8 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
-import com.lulu.lrucache.DiskLruCache
 import kotlinx.android.synthetic.main.activity_main.*
-import java.io.BufferedReader
+import libcore.io.DiskLruCache
 import java.io.File
 
 class MainActivity : AppCompatActivity() {

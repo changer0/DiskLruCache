@@ -1,4 +1,4 @@
-package com.lulu.lrucache;
+package libcore.io;
 /*
  * Copyright (C) 2011 The Android Open Source Project
  *
