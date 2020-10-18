@@ -20,7 +20,16 @@
         android:layout_height="wrap_content"/>
 
     <EditText
-        android:id="@+id/etInput"
+        android:id="@+id/etInputKey"
+        android:hint="key"
+        android:text="key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <EditText
+        android:id="@+id/etInputValue"
+        android:hint="value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

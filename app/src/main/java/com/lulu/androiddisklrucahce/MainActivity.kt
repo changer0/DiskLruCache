@@ -16,20 +16,22 @@ class MainActivity : AppCompatActivity() {
         // 1. 缓存地址 2. 版本号  3. 指定同一个key可以对应多少个缓存文件 4. 指定最多可以缓存多少字节的数据
         mCache = DiskLruCache.open(getDiskCacheDir(this, "lruCache"), 101, 1, 10 * 1024 * 1024)
         btRead.setOnClickListener {
-            var value = mCache.get("key")
-            if (value != null) {
-                val inputStream = value.getInputStream(0)
-                tvContent.text = String(inputStream.readBytes())
+            val key = etInputKey.text.toString()
+            val snapshot = mCache.get(key)
+            if (snapshot != null) {
+                val inputStream = snapshot.getInputStream(0)
+                tvContent.text = "$key ：${String(inputStream.readBytes())}"
+                snapshot.close()
             } else {
-                tvContent.text = "数据为空！"
+                tvContent.text = "$key ：数据为空！"
             }
         }
         btWrite.setOnClickListener {
-            val valueText = etInput.text.toString()
-
-            val editor  = mCache.edit("key")
+            val value = etInputValue.text.toString()
+            val key = etInputKey.text.toString()
+            val editor  = mCache.edit(key)
             val ops = editor.newOutputStream(0)
-            ops.write(valueText.toByteArray())
+            ops.write(value.toByteArray())
             ops.flush()
             // editor.abort() 忽略提交
             editor.commit()
