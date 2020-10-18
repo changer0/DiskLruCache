@@ -8,7 +8,7 @@ import java.io.InterruptedIOException;
 import java.io.OutputStream;
 import java.net.Socket;
 
-final class IoUtils {
+public final class IoUtils {
     /** {@value} */
     public static final int DEFAULT_BUFFER_SIZE = 32 * 1024; // 32 KB
     /** {@value} */
@@ -138,16 +138,7 @@ final class IoUtils {
             e.printStackTrace();
             // Do nothing
         } finally {
-            closeSilently(is);
-        }
-    }
-
-    public static void closeSilently(Closeable closeable) {
-        try {
-            closeable.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            // Do nothing
+            closeQuietly(is);
         }
     }
 
